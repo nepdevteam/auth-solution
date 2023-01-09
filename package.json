@@ -1,14 +1,25 @@
 {
-  "name": "auth",
+  "name": "auth-solution",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nepdevteam/auth-solution.git"
+  },
+  "author": "Nep developpers team",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "bugs": {
+    "url": "https://github.com/nepdevteam/auth-solution/issues"
+  },
+  "homepage": "https://github.com/nepdevteam/auth-solution#readme",
   "scripts": {
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1"
