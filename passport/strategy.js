@@ -37,4 +37,4 @@ class AuthenticationPassport {
     authenticationChecker = this.passport.authenticate('jwt', { session: false })
 }
 
-module.exports = { AuthenticationPassport };
+module.exports.AuthenticationPassport = AuthenticationPassport;

@@ -1,4 +1,4 @@
 const jwt = require("./jwt/functions");
-const passport = require("./passport");
+const { AuthenticationPassport } = require("./passport/strategy");
 
-module.exports = Object.assign({}, { jwt, passport });
+module.exports = Object.assign({}, { jwt, AuthenticationPassport });
