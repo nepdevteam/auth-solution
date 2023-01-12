@@ -18,7 +18,7 @@ class AuthenticationPassport {
     _configTokenBaseStrategy() {
         passport.use(new this.Strategy(this.opts, async function (jwt_payload, done) {
             try {
-                const user = await getUserById(jwt_payload.sub);
+                const user = await this.opts.userGetter(jwt_payload.sub);
                 if (user) {
                     return done(null, user);
                 } else {
