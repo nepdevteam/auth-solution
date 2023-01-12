@@ -3,8 +3,8 @@ const { ExtractJwt, Strategy } = require("passport-jwt");
 
 class AuthenticationPassport {
     constructor(options) {
-        this.Strategy = options.Strategy;
-        this.passport = options.passport;
+        this.Strategy = Strategy;
+        this.passport = passport;
         this.opts = {
             secretOrKey: options.secretOrKey,
             jwtFromRequest: options.tokenHeaderExtractor ? ExtractJwt.fromExtractors([options.tokenHeaderExtractor]) : ExtractJwt.fromAuthHeader,
@@ -34,7 +34,7 @@ class AuthenticationPassport {
         }));
     }
 
-    authenticationChecker = this.passport.authenticate('jwt', { session: false })
+    authenticationChecker = passport.authenticate('jwt', { session: false })
 }
 
 module.exports.AuthenticationPassport = AuthenticationPassport;
