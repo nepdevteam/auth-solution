@@ -5,20 +5,20 @@ class AuthenticationPassport {
     constructor(options) {
         this.Strategy = Strategy;
         this.passport = passport;
-        this.getUser = options.getUser;
         this.opts = {
             secretOrKey: options.secretOrKey,
             jwtFromRequest: options.tokenHeaderExtractor ? ExtractJwt.fromExtractors([options.tokenHeaderExtractor]) : ExtractJwt.fromAuthHeader,
             algorithms: ["HS256", "HS384"],
         }
 
-        this._configTokenBaseStrategy();
+        // Passport initialized
+        this._configTokenBaseStrategy.bind(this, options.getUser);;
     }
 
-    _configTokenBaseStrategy() {
+    _configTokenBaseStrategy(getUser) {
         passport.use(new this.Strategy(this.opts, async function (jwt_payload, done) {
             try {
-                const user = await this.getUser(jwt_payload.sub);
+                const user = await getUser(jwt_payload.sub);
                 if (user) {
                     return done(null, user);
                 } else {
