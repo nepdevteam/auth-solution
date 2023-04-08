@@ -12,7 +12,7 @@ class AuthenticationPassport {
         }
 
         // Passport initialized
-        this._configTokenBaseStrategy(options.getUser);;
+        this._configTokenBaseStrategy(options.userGetter);;
     }
 
     _configTokenBaseStrategy(getUser) {
